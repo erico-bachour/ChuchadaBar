@@ -5,6 +5,7 @@ import type { User as SupabaseUser } from '@supabase/supabase-js'
 
 // Pages - to be created
 import Dashboard from './pages/Dashboard'
+import Ingredients from './pages/Ingredients'
 import Dishes from './pages/Dishes'
 import Packages from './pages/Packages'
 import Events from './pages/Events'
@@ -70,6 +71,10 @@ function App() {
           <Route
             path="/"
             element={<ProtectedRoute component={Dashboard} user={user} />}
+          />
+          <Route
+            path="/ingredients"
+            element={<ProtectedRoute component={Ingredients} user={user} />}
           />
           <Route
             path="/dishes"

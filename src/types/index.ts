@@ -1,3 +1,18 @@
+// Ingredient/Ingrediente
+export interface Ingredient {
+  id: string
+  name: string
+  category?: string
+  purchase_unit: 'g' | 'kg' | 'ml' | 'l' | 'un'
+  package_quantity: number
+  package_price: number
+  unit_cost: number
+  supplier?: string
+  notes?: string
+  created_at: string
+  updated_at: string
+}
+
 // Dish/Prato
 export interface Dish {
   id: string

@@ -8,6 +8,7 @@ interface NavigationProps {
 
 const navItems = [
   { href: '/', label: 'Dashboard' },
+  { href: '/ingredients', label: 'Ingredientes' },
   { href: '/dishes', label: 'Pratos' },
   { href: '/packages', label: 'Pacotes' },
   { href: '/events', label: 'Eventos' },

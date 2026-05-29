@@ -3,6 +3,7 @@ import { supabase } from '../services/supabase'
 
 export default function Dashboard() {
   const [stats, setStats] = useState({
+    totalIngredients: 0,
     totalDishes: 0,
     totalPackages: 0,
     totalEvents: 0,
@@ -12,13 +13,15 @@ export default function Dashboard() {
   useEffect(() => {
     const loadStats = async () => {
       try {
-        const [dishesRes, packagesRes, eventsRes] = await Promise.all([
+        const [ingredientsRes, dishesRes, packagesRes, eventsRes] = await Promise.all([
+          supabase.from('ingredients').select('count', { count: 'exact' }),
           supabase.from('dishes').select('count', { count: 'exact' }),
           supabase.from('packages').select('count', { count: 'exact' }),
           supabase.from('events').select('count', { count: 'exact' }),
         ])
 
         setStats({
+          totalIngredients: ingredientsRes.count || 0,
           totalDishes: dishesRes.count || 0,
           totalPackages: packagesRes.count || 0,
           totalEvents: eventsRes.count || 0,
@@ -46,20 +49,24 @@ export default function Dashboard() {
         />
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
         <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#8b0000]">
+          <h3 className="text-gray-600 text-sm font-semibold mb-2">Total de Ingredientes</h3>
+          <p className="text-3xl font-bold text-[#8b0000]">{stats.totalIngredients}</p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#1f1b1b]">
           <h3 className="text-gray-600 text-sm font-semibold mb-2">Total de Pratos</h3>
           <p className="text-3xl font-bold text-[#8b0000]">{stats.totalDishes}</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#1f1b1b]">
+        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#c5b48f]">
           <h3 className="text-gray-600 text-sm font-semibold mb-2">Total de Pacotes</h3>
           <p className="text-3xl font-bold text-[#1f1b1b]">{stats.totalPackages}</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#c5b48f]">
+        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#8b0000]">
           <h3 className="text-gray-600 text-sm font-semibold mb-2">Total de Eventos</h3>
           <p className="text-3xl font-bold text-[#8b0000]">{stats.totalEvents}</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#8b0000]">
+        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#1f1b1b]">
           <h3 className="text-gray-600 text-sm font-semibold mb-2">CMV Total</h3>
           <p className="text-3xl font-bold text-[#8b0000]">R$ {stats.totalCMV.toFixed(2)}</p>
         </div>
