@@ -67,14 +67,14 @@ export default function Dishes() {
         <h1 className="text-3xl font-bold">Gerenciar Pratos</h1>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+          className="bg-[#8b0000] hover:bg-[#a41313] text-white px-4 py-2 rounded"
         >
           {showForm ? 'Cancelar' : 'Adicionar Prato'}
         </button>
       </div>
 
       {showForm && (
-        <div className="bg-white p-6 rounded-lg shadow mb-8">
+        <div className="bg-white p-6 rounded-lg shadow mb-8 border border-[#e4d8bf]">
           <form onSubmit={handleAddDish}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
@@ -123,7 +123,7 @@ export default function Dishes() {
             </div>
             <button
               type="submit"
-              className="mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded"
+              className="mt-4 bg-[#251f1f] hover:bg-[#3b3333] text-white px-6 py-2 rounded"
             >
               Salvar Prato
             </button>

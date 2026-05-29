@@ -63,7 +63,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-[#f4efe2] text-[#251f1f]">
         {user && <Navigation user={user} />}
         <Routes>
           <Route path="/login" element={<Login />} />

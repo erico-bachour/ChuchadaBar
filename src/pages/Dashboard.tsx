@@ -34,28 +34,38 @@ export default function Dashboard() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <p className="text-[#6f6460] mt-1">Gestao de eventos, pratos e CMV do Chuchada Bar.</p>
+        </div>
+        <img
+          src="/logo-chuchada-disco.png"
+          alt="Chuchada Bar"
+          className="hidden md:block h-20 w-40 object-contain"
+        />
+      </div>
       
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#8b0000]">
           <h3 className="text-gray-600 text-sm font-semibold mb-2">Total de Pratos</h3>
-          <p className="text-3xl font-bold text-blue-600">{stats.totalDishes}</p>
+          <p className="text-3xl font-bold text-[#8b0000]">{stats.totalDishes}</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#1f1b1b]">
           <h3 className="text-gray-600 text-sm font-semibold mb-2">Total de Pacotes</h3>
-          <p className="text-3xl font-bold text-green-600">{stats.totalPackages}</p>
+          <p className="text-3xl font-bold text-[#1f1b1b]">{stats.totalPackages}</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#c5b48f]">
           <h3 className="text-gray-600 text-sm font-semibold mb-2">Total de Eventos</h3>
-          <p className="text-3xl font-bold text-purple-600">{stats.totalEvents}</p>
+          <p className="text-3xl font-bold text-[#8b0000]">{stats.totalEvents}</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-6 rounded-lg shadow border-t-4 border-[#8b0000]">
           <h3 className="text-gray-600 text-sm font-semibold mb-2">CMV Total</h3>
-          <p className="text-3xl font-bold text-red-600">R$ {stats.totalCMV.toFixed(2)}</p>
+          <p className="text-3xl font-bold text-[#8b0000]">R$ {stats.totalCMV.toFixed(2)}</p>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow">
+      <div className="bg-white p-6 rounded-lg shadow border border-[#e4d8bf]">
         <h2 className="text-2xl font-bold mb-4">Bem-vindo ao Chuchada Bar!</h2>
         <p className="text-gray-700">
           Use o menu acima para gerenciar pratos, pacotes e eventos. 

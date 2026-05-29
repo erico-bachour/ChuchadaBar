@@ -6,6 +6,13 @@ interface NavigationProps {
   user: SupabaseUser
 }
 
+const navItems = [
+  { href: '/', label: 'Dashboard' },
+  { href: '/dishes', label: 'Pratos' },
+  { href: '/packages', label: 'Pacotes' },
+  { href: '/events', label: 'Eventos' },
+]
+
 export default function Navigation({ user }: NavigationProps) {
   const navigate = useNavigate()
 
@@ -15,31 +22,42 @@ export default function Navigation({ user }: NavigationProps) {
   }
 
   return (
-    <nav className="bg-blue-600 text-white shadow-lg">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-8">
-            <h1 className="text-2xl font-bold">🍹 Chuchada Bar</h1>
-            <div className="flex gap-6">
-              <a href="/" className="hover:bg-blue-700 px-3 py-2 rounded">
-                Dashboard
-              </a>
-              <a href="/dishes" className="hover:bg-blue-700 px-3 py-2 rounded">
-                Pratos
-              </a>
-              <a href="/packages" className="hover:bg-blue-700 px-3 py-2 rounded">
-                Pacotes
-              </a>
-              <a href="/events" className="hover:bg-blue-700 px-3 py-2 rounded">
-                Eventos
-              </a>
+    <nav className="bg-[#1f1b1b] text-[#f8f3e6] shadow-lg border-b-4 border-[#8b0000]">
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-8">
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="flex items-center gap-3 text-left"
+              aria-label="Ir para o dashboard"
+            >
+              <img
+                src="/logo-chuchada-disco.png"
+                alt="Chuchada Bar"
+                className="h-12 w-24 object-contain"
+              />
+              <span className="text-xl font-bold tracking-wide">Chuchada Bar</span>
+            </button>
+
+            <div className="flex flex-wrap gap-2">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="rounded px-3 py-2 text-sm font-semibold hover:bg-[#8b0000]"
+                >
+                  {item.label}
+                </a>
+              ))}
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-sm">{user.email}</span>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <span className="text-sm text-[#f8f3e6]/80">{user.email}</span>
             <button
               onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded"
+              className="rounded bg-[#8b0000] px-4 py-2 font-semibold hover:bg-[#a41313]"
             >
               Sair
             </button>
