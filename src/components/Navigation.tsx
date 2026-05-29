@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../services/supabase'
 import type { User as SupabaseUser } from '@supabase/supabase-js'
 
@@ -41,13 +41,13 @@ export default function Navigation({ user }: NavigationProps) {
 
             <div className="flex flex-wrap gap-2">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   className="rounded px-3 py-2 text-sm font-semibold hover:bg-[#8b0000]"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
