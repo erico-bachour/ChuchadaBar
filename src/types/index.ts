@@ -11,6 +11,20 @@ export interface Ingredient {
   notes?: string
   created_at: string
   updated_at: string
+  price_history?: IngredientPrice[]
+}
+
+export interface IngredientPrice {
+  id: string
+  ingredient_id: string
+  purchase_date: string
+  purchase_unit: Ingredient['purchase_unit']
+  package_quantity: number
+  package_price: number
+  unit_cost: number
+  supplier?: string
+  notes?: string
+  created_at: string
 }
 
 // Dish/Prato
