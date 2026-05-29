@@ -29,7 +29,7 @@ export default function Navigation({ user }: NavigationProps) {
             <button
               type="button"
               onClick={() => navigate('/')}
-              className="flex items-center gap-3 text-left"
+              className="flex items-center text-left"
               aria-label="Ir para o dashboard"
             >
               <img
@@ -37,7 +37,6 @@ export default function Navigation({ user }: NavigationProps) {
                 alt="Chuchada Bar"
                 className="h-12 w-24 object-contain"
               />
-              <span className="text-xl font-bold tracking-wide">Chuchada Bar</span>
             </button>
 
             <div className="flex flex-wrap gap-2">
